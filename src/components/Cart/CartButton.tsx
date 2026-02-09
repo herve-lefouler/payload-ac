@@ -1,9 +1,6 @@
 'use client'
 
-import { ShoppingBag } from 'lucide-react'
-import React, { Suspense } from 'react'
 import { Button } from '@/components/ui/button'
-import { useCart } from '@payloadcms/plugin-ecommerce/client/react'
 import {
   Sheet,
   SheetContent,
@@ -12,8 +9,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import { CartModalContent } from './CartModalContent'
+import { useCart } from '@payloadcms/plugin-ecommerce/client/react'
+import { ShoppingBag } from 'lucide-react'
 import { usePathname } from 'next/navigation'
+import React, { Suspense } from 'react'
+import { CartModalContent } from './CartModalContent'
 
 type Props = {
   className?: string
@@ -51,7 +51,7 @@ function CartButtonWithData({ className }: Props) {
           className={`navLink relative ${className || ''}`}
           aria-label="Shopping cart"
         >
-          <ShoppingBag className="h-5 w-5" style={{ color: 'var(--brand-teal, #1A5A5A)' }} />
+          <ShoppingBag className="size-8" style={{ color: 'var(--brand-teal, #1A5A5A)' }} />
           {totalQuantity > 0 && (
             <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full text-xs text-white" style={{ backgroundColor: 'var(--brand-teal, #1A5A5A)' }}>
               {totalQuantity}
@@ -79,7 +79,7 @@ function CartIconButton({ className }: Props) {
       aria-label="Shopping cart"
       disabled
     >
-      <ShoppingBag className="h-5 w-5" style={{ color: 'var(--brand-teal, #1A5A5A)' }} />
+      <ShoppingBag className="size-8" style={{ color: 'var(--brand-teal, #1A5A5A)' }} />
     </Button>
   )
 }
